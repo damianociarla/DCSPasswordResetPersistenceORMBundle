@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="dcs_password_reset.persistence.orm.repository.class">DCS\PasswordReset\Persistence\ORMBundle\Repository\ResetRequestRepository</parameter>
+    </parameters>
+
+    <services>
+        <service id="dcs_password_reset.persistence.orm.repository" class="%dcs_password_reset.persistence.orm.repository.class%">
+            <factory service="doctrine.orm.entity_manager" method="getRepository" />
+            <argument>%dcs_password_reset.model_class%</argument>
+        </service>
+    </services>
+</container>

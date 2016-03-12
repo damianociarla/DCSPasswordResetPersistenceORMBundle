@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="dcs_password_reset.persistence.orm.listener.dcs_password_reset.class">DCS\PasswordReset\Persistence\ORMBundle\EventListener\DCSPasswordResetCoreEventSubscriber</parameter>
+    </parameters>
+
+    <services>
+        <service id="dcs_password_reset.persistence.orm.listener.dcs_password_reset" class="%dcs_password_reset.persistence.orm.listener.dcs_password_reset.class%">
+            <argument type="service" id="dcs_password_reset.persistence.orm.manager.save" />
+            <tag name="kernel.event_subscriber" />
+        </service>
+    </services>
+</container>
