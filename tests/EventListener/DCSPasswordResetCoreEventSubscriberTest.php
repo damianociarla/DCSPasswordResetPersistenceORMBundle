@@ -5,8 +5,6 @@ namespace DCS\PasswordReset\Persistence\ORMBundle\Tests\EventListener;
 use DCS\PasswordReset\CoreBundle\DCSPasswordResetCoreEvents;
 use DCS\PasswordReset\CoreBundle\Event\ResetRequestEvent;
 use DCS\PasswordReset\CoreBundle\Model\ResetRequestInterface;
-use DCS\PasswordReset\Persistence\ORMBundle\DCSPasswordResetPersistenceORMEvents;
-use DCS\PasswordReset\Persistence\ORMBundle\Event\ResetRequestSaveEvent;
 use DCS\PasswordReset\Persistence\ORMBundle\EventListener\DCSPasswordResetCoreEventSubscriber;
 use DCS\PasswordReset\Persistence\ORMBundle\Manager\Save;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
