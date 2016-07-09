@@ -1,0 +1,38 @@
+{
+  "name": "dcs/password-reset-persistence-orm-bundle",
+  "type": "symfony-bundle",
+  "description": "This bundle provides the implementation of the persistence on database using Doctrine ORM of all password requests",
+  "keywords": ["User","Password","Symfony","Reset","Doctrine","ORM"],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Damiano Ciarla",
+      "email": "damiano.ciarla@gmail.org"
+    }
+  ],
+  "require": {
+    "php": ">=5.3.9",
+    "doctrine/orm": "^2.5"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^5",
+    "dcs/password-reset-core-bundle": "~1.0@dev",
+    "symfony/framework-bundle": "~2.8|~3.0",
+    "doctrine/doctrine-bundle": "~1.6"
+  },
+  "autoload": {
+    "psr-4": {
+      "DCS\\PasswordReset\\Persistence\\ORMBundle\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "DCS\\PasswordReset\\Persistence\\ORMBundle\\Tests\\": "tests"
+    }
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "1.0.x-dev"
+    }
+  }
+}
