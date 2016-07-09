@@ -15,13 +15,9 @@ class DCSPasswordResetPersistenceORMBundle extends Bundle
     {
         parent::build($container);
 
-        if (!class_exists('Doctrine\ORM\Version')) {
-            return;
-        }
-
-        $ormCompilerClass = 'Doctrine\Bundle\DoctrineBundle\DependencyInjection\Compiler\DoctrineOrmMappingsPass';
-
-        if (!class_exists($ormCompilerClass)) {
+        if (!class_exists('Doctrine\ORM\Version') ||
+            !class_exists('Doctrine\Bundle\DoctrineBundle\DependencyInjection\Compiler\DoctrineOrmMappingsPass')
+        ) {
             return;
         }
 

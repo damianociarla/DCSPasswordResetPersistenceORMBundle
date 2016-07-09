@@ -13,7 +13,7 @@ class DCSPasswordResetPersistenceORMExtension extends Extension
     {
         $config = $this->processConfiguration(new Configuration(), $configs);
 
-        $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
+        $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
 
         $loader->load('manager.xml');
         $container->setAliases([
