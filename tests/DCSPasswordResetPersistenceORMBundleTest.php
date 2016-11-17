@@ -8,22 +8,14 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 class DCSPasswordResetPersistenceORMBundleTest extends \PHPUnit_Framework_TestCase
 {
-    public function testDoctrineOrmMappingsPass()
+    public function testBuildAddsProviderCompilerPass()
     {
+        $containerBuilder = $this->createMock(ContainerBuilder::class);
+        $containerBuilder->expects($this->atLeastOnce())
+            ->method('addCompilerPass')
+            ->with($this->isInstanceOf(DoctrineOrmMappingsPass::class));
+
         $bundle = new DCSPasswordResetPersistenceORMBundle();
-
-        $container = new ContainerBuilder();
-
-        $bundle->build($container);
-
-        $isContains = false;
-
-        foreach ($container->getCompiler()->getPassConfig()->getPasses() as $compilerPass) {
-            if ($compilerPass instanceof DoctrineOrmMappingsPass) {
-                $isContains = true;
-            }
-        }
-
-        $this->assertTrue($isContains, 'Doctrine bundle is not loaded in your composer.json');
+        $bundle->build($containerBuilder);
     }
 }
