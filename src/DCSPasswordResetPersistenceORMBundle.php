@@ -15,12 +15,6 @@ class DCSPasswordResetPersistenceORMBundle extends Bundle
     {
         parent::build($container);
 
-        if (!class_exists('Doctrine\ORM\Version') ||
-            !class_exists('Doctrine\Bundle\DoctrineBundle\DependencyInjection\Compiler\DoctrineOrmMappingsPass')
-        ) {
-            return;
-        }
-
         $container->addCompilerPass(
             DoctrineOrmMappingsPass::createXmlMappingDriver([
                 realpath(__DIR__ . '/Resources/config/doctrine-core') => 'DCS\PasswordReset\CoreBundle\Model',
